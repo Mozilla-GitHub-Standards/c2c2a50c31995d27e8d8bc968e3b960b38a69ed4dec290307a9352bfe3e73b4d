@@ -84,6 +84,7 @@ class PPReleaseFactory(BuildFactory):
                         rmConfig['BUILDBOTCUSTOM_BRANCH'],
                      'BUILDBOTCONFIGS_BRANCH=%s' %
                         rmConfig['BUILDBOTCONFIGS_BRANCH'],
+                     'UNIVERSAL=1',
                      'virtualenv', 'deps', 'install-buildbot', 'master',
                      'master-makefile'],
             workdir='buildbot-configs',
