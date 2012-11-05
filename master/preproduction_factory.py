@@ -173,6 +173,11 @@ class PPBuildFactory(BuildFactory):
                      'http://preproduction-master.srv.releng.scl3.mozilla.com/~cltbld/index.php',
                      '/home/cltbld/public_html/db/clobberer.db'],
         ))
+        self.addStep(ShellCommand(
+            workdir='tools/buildfarm/mobile',
+            command=['python', '-m', 'json.tool', 'devices.json'],
+            name='check_devices_json_syntax',
+        ))
 
     def bbc_run_tests(self):
         self.addStep(ShellCommand(
