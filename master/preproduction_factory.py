@@ -156,11 +156,6 @@ class PPBuildFactory(BuildFactory):
 
     def tools_run_tests(self):
         self.addStep(ShellCommand(
-            workdir='tools/release/signing',
-            command=['python', 'tests.py'],
-            name='release_signing_tests',
-        ))
-        self.addStep(ShellCommand(
             workdir='tools/lib/python',
             name='tools_lib_nosetests',
             env={'PYTHONPATH': '.:vendor'},
