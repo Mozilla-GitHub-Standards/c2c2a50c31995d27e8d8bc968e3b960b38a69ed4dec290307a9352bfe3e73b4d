@@ -158,7 +158,7 @@ class PPBuildFactory(BuildFactory):
         self.addStep(ShellCommand(
             workdir='tools/lib/python',
             name='tools_lib_nosetests',
-            env={'PYTHONPATH': '.:vendor'},
+            env={'PYTHONPATH': '.:vendor:vendor/poster-0.8.1'},
             command=['nosetests'],
         ))
         self.addStep(ShellCommand(
