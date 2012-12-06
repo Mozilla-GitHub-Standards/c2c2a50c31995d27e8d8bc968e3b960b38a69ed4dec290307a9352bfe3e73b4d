@@ -181,7 +181,6 @@ class PPBuildFactory(BuildFactory):
                      'exit=0; for f in test/*.py; do trial $f || exit=1; done; exit $exit'],
             env={'PYTHONPATH': WithProperties('%(topdir)s/tools/lib/python:%(topdir)s:%(topdir)s/tools/lib/python/vendor')},
             name='buildbotcustom_tests',
-            flunkOnFailure=False,
         ))
 
     def config_tests(self):
