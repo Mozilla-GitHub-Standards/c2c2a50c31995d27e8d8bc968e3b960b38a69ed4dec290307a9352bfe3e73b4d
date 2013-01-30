@@ -60,9 +60,15 @@ class PPBuildFactory(BuildFactory):
             workdir=".",
         ))
 
-    def update_repo(self, repo, branch='default'):
+    def update_repo(self, repo, branch='default', clobber=False):
         workdir = repo.split("/")[-1]
         repourl = 'http://%s/%s' % (self.hgHost, repo)
+        if clobber:
+            self.addStep(ShellCommand(
+                name='%s_clobber' % workdir,
+                command=['rm', '-rf', workdir],
+                workdir='.',
+            ))
         self.addStep(ShellCommand(
             name='%s_update' % workdir,
             command=['bash', '-c',
